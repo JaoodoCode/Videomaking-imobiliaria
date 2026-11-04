@@ -1171,7 +1171,7 @@ function render(){
   const plan = planFor(q);
   E.pill.textContent = plan ? 'Pacote ' + plan.name : (r.free ? '+' + r.free + ' ' + plural(r.free) + ' grátis' : 'Personalizado');
   E.msg.textContent = (r.free
-    ? 'Você recebe ' + q + ' ' + plural(q) + ' e paga apenas ' + r.paid + '. São ' + r.free + ' ' + plural(r.free) + ' grátis e ' + money(r.discountCents) + ' de economia.'
+    ? 'Você recebe ' + q + ' ' + plural(q) + ' e paga apenas ' + r.paid + '. ' + (r.free === 1 ? 'É 1 vídeo grátis' : 'São ' + r.free + ' vídeos grátis') + ' e ' + money(r.discountCents) + ' de economia.'
     : 'Cada vídeo sai por ' + money(r.unitPriceCents) + '. Ao chegar a ' + CYCLE + ' vídeos, o ' + CYCLE + 'º é por nossa conta.')
     + (plan && plan.extras.length ? ' Bônus do ' + plan.name + ': ' + plan.extras.join(' e ') + '.' : '');
   $$('.plan').forEach(el => el.classList.toggle('picked', !!plan && el.dataset.plan === plan.id));
